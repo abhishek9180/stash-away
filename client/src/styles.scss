@@ -1,0 +1,31 @@
+/* You can add global styles to this file, and also import other style files */
+:root {
+  --color-white: #fff;
+  --color-light-white: #989898;
+  --color-primary: rgb(7, 35, 64);
+  --color-blue: rgb(56, 132, 217);
+  --color-sky: rgb(63, 182, 178);
+}
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  color: #696969;
+}
+
+.primary-text {
+  color: var(--color-blue);
+}
+
+h3 {
+  font-weight: 550;
+}
+
+h2 {
+  font-size: 25px !important;
+}
+
+

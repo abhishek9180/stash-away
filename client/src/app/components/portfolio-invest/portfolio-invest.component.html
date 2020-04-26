@@ -1,0 +1,121 @@
+
+<div class="app-portfolio-invest">
+<div class="nav">
+   <a routerLink="/">
+    More actions
+    <mat-icon aria-hidden="false" aria-label="Option">keyboard_arrow_down</mat-icon>
+  </a>
+  </div>
+<mat-tab-group backgroundColor="primary" color="accent">
+  <mat-tab label="Overview">
+    <div class="tab-content">
+      <h3>Portfolio benchmark</h3>
+
+      <div class="portfolio-comparison">
+        <div class="portfolio-comparison__left">
+          <p>General Investing</p>
+          <b class="primary-text">StashAway Risk Index 14%</b>
+        </div>
+        <div class="portfolio-comparison__right">
+          <mat-form-field appearance="outline">
+            <mat-label>Which benchmark do you want to compare?</mat-label>
+            <mat-select #benchmarkInput [(ngModel)]="benchmarkValue" (selectionChange)="onBenchmarkChange(benchmarkInput.value)">
+              <mat-option *ngFor="let benchmark of benchmarkList" [value]="benchmark.value">
+                {{benchmark.name}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <div class="portfolio-comparison__center">
+          vs
+        </div>
+      </div>
+
+      <div class="portfolio-chart">
+        <div class="portfolio-chart__btn">
+          <div class="portfolio-chart__btn__left">
+            <mat-button-toggle-group appearance="legacy" [value]="dateFilterValue" #dateFilter="matButtonToggleGroup" (change)="onDateFilterChange(dateFilter.value)">
+              <mat-button-toggle class="primary-text" value="0" aria-label="1 Month">
+                1 month
+              </mat-button-toggle>
+              <mat-button-toggle value="1" aria-label="6 Month">
+                6 months
+              </mat-button-toggle>
+              <mat-button-toggle value="2" aria-label="Year-to-date">
+                Year-to-date
+              </mat-button-toggle>
+              <mat-button-toggle value="3" aria-label="3 Years">
+                3 years
+              </mat-button-toggle>
+              <mat-button-toggle value="4" aria-label="5 Years">
+                5 years
+              </mat-button-toggle>
+              <mat-button-toggle value="5" aria-label="Max">
+                Max
+              </mat-button-toggle>
+            </mat-button-toggle-group>
+          </div>
+          <div class="portfolio-chart__btn__right">
+            <mat-button-toggle-group appearance="legacy" #currencyFilter="matButtonToggleGroup" value="USD">
+              <mat-button-toggle class="primary-text" disabled value="SGD" aria-label="SGD">
+                SGD
+              </mat-button-toggle>
+              <mat-button-toggle value="USD" aria-label="USD">
+                USD
+              </mat-button-toggle>
+            </mat-button-toggle-group>
+          </div>
+        </div>
+        <div class="portfolio-chart__card">
+          <mat-card backgroundColor="primary" color="primary">
+            <h3>Portfolio value based on gross returns</h3>
+            <small>Gross returns and exchange rates source from Bloombreg as of 2th May 2019</small>
+            <div class="portfolio-chart__card__container">
+            <div>
+            <ngx-charts-line-chart
+              [legend]="legend"
+              [legendTitle]= "legendTitle"
+              [legendPosition]="legendPosition"
+              [showGridLines]="showGridLines"
+              [autoScale]="autoScale"
+              [scheme]="colorScheme"
+              [xAxisTickFormatting]="xAxisTickFormatting"
+              [showRefLines]="true"
+              [showXAxisLabel]="showXAxisLabel"
+              [showYAxisLabel]="showYAxisLabel"
+              [xAxis]="xAxis"
+              [yAxis]="yAxis"
+              [timeline]="timeline"
+              [results]="chartData"
+              (select)="onSelect($event)"
+              (activate)="onActivate($event)"
+              (deactivate)="onDeactivate($event)"
+              >
+            </ngx-charts-line-chart>
+            </div>
+            </div>
+          </mat-card>
+
+
+        </div>
+      </div>
+    </div>
+  </mat-tab>
+  <mat-tab label="Assets">
+    <div class="tab-content">
+      <h4>Portfolio benchmark</h4>
+    </div>
+  </mat-tab>
+  <mat-tab label="Projection">
+    <div class="tab-content">
+      <h4>Portfolio benchmark</h4>
+    </div>
+  </mat-tab>
+  <mat-tab label="About Portfolio">
+    <div class="tab-content">
+      <h4>Portfolio benchmark</h4>
+    </div>
+  </mat-tab>
+</mat-tab-group>
+</div>
+

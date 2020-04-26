@@ -1,0 +1,26 @@
+
+.spacer {
+  flex: 1 1 auto;
+}
+
+.nav {
+  &>a {
+    font-size: 14px;
+    color: var(--color-light-white);
+    padding: 0 15px;
+    text-decoration: none;
+    &>.mat-icon {
+      top: 7px;
+      position: relative;
+    }
+  }
+}
+.mat-toolbar-row2 {
+  height: 100px;
+  & >div> small {
+    color: var(--color-sky);
+    display: inline-flex;
+    align-items: center;
+    font-size: 14px;
+  }
+}

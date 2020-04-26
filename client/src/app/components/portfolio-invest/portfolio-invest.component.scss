@@ -1,0 +1,131 @@
+.app-portfolio-invest {
+  position: relative;
+  &>.nav {
+  position: absolute;
+  right: 0;
+  background: transparent;
+  z-index: 1;
+  top: 10px;
+  font: 500 20px/32px Roboto, "Helvetica Neue", sans-serif;
+  font-size: 14px;
+  &>a {
+    height: 48px;
+    color: var(--color-light-white);
+    text-decoration: none;
+    &>.mat-icon {
+      top: 7px;
+      position: relative;
+    }
+  }
+}
+
+.tab-content {
+  padding: 0 15px;
+  
+}
+
+.portfolio-comparison {
+  position: relative;
+  display: grid;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 2px 2px 2px #ccc;
+  border-radius: 5px;
+  grid-template-columns: repeat(2, minmax(150px, 1fr));
+  background: #f9f9f9;
+  margin-bottom: 25px;
+  &__left {
+    padding: 15px;
+    &>p {
+      margin-top: 0;
+      font-size: 14px;
+      font-weight: 420;
+      opacity: 0.9;
+    }
+    &>b {
+      font-weight: 580;
+      font-size: 15px;
+    }
+  }
+  &__right {
+    background-color: #f0f0f0;
+    padding: 15px;
+    &>.mat-form-field {
+      display: block;
+      padding: 0 10px;
+      .mat-form-field-label {
+        color: var(--color-light-white) !important;
+      }
+    }
+     &>.mat-form-field-appearance-outline .mat-form-field-wrapper {
+        margin: 0;
+        padding-bottom: 0
+      }
+  }
+  &__center {
+    background-color: var(--color-blue);
+    position: absolute;
+    left: calc(50% - 15px);
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    box-shadow: 2px 2px 2px #ccc;
+    color: var(--color-white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+.portfolio-chart {
+  &__btn {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+    .mat-button-toggle-standalone, .mat-button-toggle-group {
+        box-shadow: none;
+        border-radius: 3px;
+        &>.mat-button-toggle {
+          color: var(--color-sky);
+        }
+        &>.mat-button-toggle-checked {
+          color: var(--color-white);
+          background: var(--color-sky);
+          border-radius: 3px;
+        }
+        .mat-button-toggle-label-content {
+          padding: 0 10px;
+        }
+      }
+    &__left {
+    }
+  }
+  &__card {
+    &>.mat-card {
+    background: var(--color-primary);
+    color: var(--color-light-white);
+    &>h3 {
+      margin-bottom: 5px;
+    }
+    &>small {
+      margin-bottom: 10px;
+    }
+    .ngx-charts text { fill: var(--color-light-white); }
+    .gridline-path-vertical {      display: none; }
+    .chart-legend .legend-labels {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 20px;
+    }
+  }
+    &__container{
+      height: 440px;
+      &>div {
+        width: 100%;
+        height: 380px;
+      }
+    }
+  }
+}
+}
