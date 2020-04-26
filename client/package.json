@@ -13,6 +13,7 @@
   "dependencies": {
     "@angular/cli": "~9.0.1",
     "@angular/compiler-cli": "~9.0.0",
+    "@angular-devkit/build-angular": "~0.900.1",
     "@angular/animations": "~9.0.0",
     "@angular/cdk": "^9.2.1",
     "@angular/common": "~9.0.0",
@@ -26,12 +27,14 @@
     "@swimlane/ngx-charts": "^14.0.0",
     "rxjs": "~6.5.4",
     "tslib": "^1.10.0",
-    "zone.js": "~0.10.2"
+    "zone.js": "~0.10.2",
+    "typescript": "~3.7.5"
   },
   "devDependencies": {
     "@angular/cli": "~9.0.1",
     "@angular/compiler-cli": "~9.0.0",
     "@angular/language-service": "~9.0.0",
+    "@angular-devkit/build-angular": "~0.900.1",
     "@types/node": "^12.11.1",
     "@types/jasmine": "~3.5.0",
     "@types/jasminewd2": "~2.0.3",
