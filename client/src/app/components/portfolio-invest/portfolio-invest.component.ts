@@ -130,7 +130,7 @@ export class PortfolioInvestComponent implements OnInit {
       days = 12 * 3 * 30
     } else if (value == 5) {
       // 6 months
-      days = this.stashAwayData.series.length
+      days = this.stashAwayData.series.length;
     }
     const data = this.filterDataByBenchmark(this.benchmarkValue);
     this.chartData = Object.assign(this.filterDataByDays(days, data[0], data[1]));
