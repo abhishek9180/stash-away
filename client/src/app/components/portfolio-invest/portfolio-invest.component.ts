@@ -47,18 +47,18 @@ export class PortfolioInvestComponent implements OnInit {
   timeline: boolean = false;
 
   colorScheme = {
-    domain: ['#304FFE', '#FFAB00','#a8385d', '#aae3f5']
+    domain: ['#304FFE', '#FFAB00', '#a8385d', '#aae3f5']
   };
   xAxisTickFormatting: any;
 
   constructor(private datePipe: DatePipe, private httpService: HttpService) {
-   }
+  }
 
   ngOnInit() {
     // set default data
-     this.xAxisTickFormatting = function(val: any): string {
+    this.xAxisTickFormatting = function (val: any): string {
       if (val) {
-        const date = this.datePipe.transform(new Date(val),'MMM yy');
+        const date = this.datePipe.transform(new Date(val), 'MMM yy');
         return date;
       }
     }.bind(this);
@@ -76,7 +76,10 @@ export class PortfolioInvestComponent implements OnInit {
   }
 
   getVtmxStockPrice(portfolioType: string) {
-    if (this.vtmxStockData) return;
+    if (this.vtmxStockData) {
+      this.chartData = this.filterDataByBenchmark(portfolioType);
+      return;
+    }
 
     this.httpService.getData('vtsmx-stock').subscribe(res => {
       this.vtmxStockData = res;
@@ -85,7 +88,10 @@ export class PortfolioInvestComponent implements OnInit {
   }
 
   getVtmxBondPrice(portfolioType: string) {
-    if (this.vtmxBondData) return;
+    if (this.vtmxBondData) {
+      this.chartData = this.filterDataByBenchmark(portfolioType);
+      return;
+    }
 
     this.httpService.getData('vtsmx-bond').subscribe(res => {
       this.vtmxBondData = res;
@@ -143,26 +149,26 @@ export class PortfolioInvestComponent implements OnInit {
   filterDataByDays(days: number, firstData: any, secondData?: any) {
     try {
       const data = [
-      {
-        name: firstData.name,
-        series: firstData.series.slice(firstData.series.length-days)
+        {
+          name: firstData.name,
+          series: firstData.series.slice(firstData.series.length - days)
+        }
+      ];
+      if (secondData) {
+        data.push({
+          name: secondData.name,
+          series: secondData.series.slice(secondData.series.length - days)
+        })
       }
-    ];
-    if (secondData) {
-      data.push({
-        name: secondData.name,
-        series: secondData.series.slice(secondData.series.length-days)
-      })
-    }
-    console.log(data)
-    return data;
+      console.log(data)
+      return data;
     } catch (error) {
       return [];
     }
-    
+
   }
 
-   onSelect(data): void {
+  onSelect(data): void {
 
     console.log('Item clicked', JSON.parse(JSON.stringify(data)));
   }
